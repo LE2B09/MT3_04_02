@@ -53,7 +53,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
     Vector3 cameraRotate = { 0.26f, 0.0f, 0.0f };
 
     // 球体の情報
-    Sphere p{ { pendulum.anchor.x + std::cos(pendulum.angle) * pendulum.length, pendulum.anchor.y + std::sin(pendulum.angle) * pendulum.length, pendulum.anchor.z }, 0.08f };
+    Sphere p{ { pendulum.anchor.x + std::sin(pendulum.angle) * pendulum.length, pendulum.anchor.y - std::cos(pendulum.angle) * pendulum.length, pendulum.anchor.z }, 0.08f };
 
     // ウィンドウの×ボタンが押されるまでループ
     while (Novice::ProcessMessage() == 0)
@@ -139,7 +139,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
         }
 
         // pは振り子の先端の位置
-        p.center = { pendulum.anchor.x + std::cos(pendulum.angle) * pendulum.length , pendulum.anchor.y + std::sin(pendulum.angle) * pendulum.length, pendulum.anchor.z };
+        p.center = { pendulum.anchor.x + std::sin(pendulum.angle) * pendulum.length, pendulum.anchor.y - std::cos(pendulum.angle) * pendulum.length, pendulum.anchor.z };
 
         ///
         /// ↑更新処理ここまで
